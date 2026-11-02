@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>DocuStamp Pro - Batch PDF Sign, Stamp & Seal Studio | By Pratik Bihari</title>
+  <meta name="title" content="DocuStamp Pro - Batch PDF Sign, Stamp & Seal Studio | By Pratik Bihari">
+  <meta name="description" content="Free online tool to batch stamp signatures, company seals, and watermarks on all pages or custom page ranges of any PDF in one click. 100% private, client-side processing with transparent background removal.">
+  <meta name="keywords" content="pdf stamp, batch sign pdf, stamp all pages pdf, pdf seal, add signature to pdf, transparent signature stamp, remove white background signature, pdf signature tool, pratik bihari, client side pdf signer">
+  <meta name="author" content="Pratik Bihari">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Favicon (High-res SVG Icon with Brand Stamp) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366f1'/%3E%3Cstop offset='50%25' stop-color='%234f46e5'/%3E%3Cstop offset='100%25' stop-color='%230284c7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpath d='M32 14c-4.4 0-8 3.6-8 8v4h16v-4c0-4.4-3.6-8-8-8zm-14 20h28v6H18zm-4 10h36v6H14z' fill='white' fill-opacity='0.95'/%3E%3Ccircle cx='46' cy='46' r='6' fill='%2310b981' stroke='white' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366f1'/%3E%3Cstop offset='50%25' stop-color='%234f46e5'/%3E%3Cstop offset='100%25' stop-color='%230284c7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpath d='M32 14c-4.4 0-8 3.6-8 8v4h16v-4c0-4.4-3.6-8-8-8zm-14 20h28v6H18zm-4 10h36v6H14z' fill='white' fill-opacity='0.95'/%3E%3Ccircle cx='46' cy='46' r='6' fill='%2310b981' stroke='white' stroke-width='2'/%3E%3C/svg%3E">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://docustamp-pro.web.app/">
+  <meta property="og:title" content="DocuStamp Pro - Batch PDF Sign, Stamp & Seal Studio">
+  <meta property="og:description" content="Place signatures and company stamps across all PDF pages or custom page ranges in one single click. Completely private and in-browser.">
+  <meta property="og:image" content="https://placehold.co/1200x630/4f46e5/ffffff?text=DocuStamp+Pro+-+Batch+Sign+%26+Seal+PDFs">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DocuStamp Pro - Batch PDF Sign, Stamp & Seal Studio">
+  <meta name="twitter:description" content="Add your stamp and signature to every PDF page in 1 click. Transparent background removal & custom range selector included.">
+  <meta name="twitter:image" content="https://placehold.co/1200x630/4f46e5/ffffff?text=DocuStamp+Pro+-+Batch+Sign+%26+Seal+PDFs">
+
+  <!-- Structured Data (JSON-LD) for Rich Search Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DocuStamp Pro",
+    "alternateName": "DocuStamp Pro - Batch PDF Sign & Seal Studio",
+    "applicationCategory": "BusinessApplication, UtilitiesApplication",
+    "operatingSystem": "All modern browsers",
+    "description": "Secure in-browser web tool to stamp signatures, seals, and watermarks across all pages or selected page ranges of any PDF document in a single click.",
+    "author": {
+      "@type": "Person",
+      "name": "Pratik Bihari"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "1-Click All-Pages Batch Stamping",
+      "Automatic White Background Removal to Transparent PNG",
+      "Custom Page Range Support",
+      "Interactive Drag-to-Position on Canvas",
+      "Built-in Signature Drawing Pad",
+      "100% In-Browser Privacy Protection"
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- PDF-LIB for PDF manipulation -->
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <!-- PDF.js for rendering PDF previews in canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    .checkered-pattern {
+      background-image: 
+        linear-gradient(45deg, #f1f5f9 25%, transparent 25%), 
+        linear-gradient(-45deg, #f1f5f9 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #f1f5f9 75%), 
+        linear-gradient(-45deg, transparent 75%, #f1f5f9 75%);
+      background-size: 14px 14px;
+      background-position: 0 0, 0 7px, 7px -7px, -7px 0px;
+    }
+    .pdf-elevation {
+      box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(226, 232, 240, 0.8);
+    }
+    .mesh-bg {
+      background: radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+                  radial-gradient(at 100% 0%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
+                  radial-gradient(at 50% 100%, rgba(168, 85, 247, 0.05) 0px, transparent 50%),
+                  #f8fafc;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .interactive-stamp {
+      cursor: grab;
+      touch-action: none;
+    }
+    .interactive-stamp:active {
+      cursor: grabbing;
+    }
+  </style>
+</head>
+<body class="mesh-bg text-slate-800 min-h-screen flex flex-col antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="glass-card border-b border-slate-200/80 sticky top-0 z-40 shadow-sm transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3.5">
+        <div class="relative group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-indigo-600 to-sky-500 flex items-center justify-center text-white shadow-lg shadow-brand-500/25 group-hover:scale-105 transition duration-300">
+            <i class="fa-solid fa-stamp text-lg"></i>
+          </div>
+          <span class="absolute -bottom-1 -right-1 flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 border-2 border-white"></span>
+          </span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">DocuStamp<span class="text-brand-600">Pro</span></h1>
+            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-brand-50 text-brand-600 border border-brand-100">All-Pages Batch</span>
+          </div>
+          <p class="text-xs text-slate-500 font-medium hidden sm:block">Automate stamp, seals & signature placement across all pages</p>
+        </div>
+      </div>
+      
+      <!-- Top Action Right -->
+      <div class="flex items-center space-x-3">
+        <span id="pageCountBadge" class="hidden sm:inline-flex items-center px-3 py-1.5 rounded-xl text-xs font-semibold bg-white/80 text-slate-600 border border-slate-200/80 shadow-xs">
+          <i class="fa-solid fa-layer-group mr-2 text-indigo-500"></i> No PDF loaded
+        </span>
+        
+        <button id="downloadPdfBtn" disabled class="group relative px-4 py-2 sm:px-5 sm:py-2.5 bg-gradient-to-r from-brand-600 via-indigo-600 to-violet-600 hover:from-brand-700 hover:to-violet-700 disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs sm:text-sm font-semibold rounded-xl shadow-md shadow-brand-500/20 active:scale-95 transition-all duration-200 flex items-center gap-2 overflow-hidden">
+          <i class="fa-solid fa-file-arrow-down text-sm transition-transform group-hover:-translate-y-0.5"></i>
+          <span>Export Stamped PDF</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Notification Toast Container -->
+  <div id="toastBox" class="fixed top-20 right-5 z-50 flex flex-col space-y-2 pointer-events-none"></div>
+
+  <!-- Main Content Layout -->
+  <main class="flex-1 max-w-7xl mx-auto w-full p-4 sm:p-6 lg:p-8 flex flex-col lg:flex-row gap-6">
+
+    <!-- Left Controls Panel -->
+    <aside class="w-full lg:w-[380px] flex-shrink-0 space-y-4">
+      
+      <!-- Step 1: Upload PDF -->
+      <div class="glass-card rounded-2xl p-4.5 border border-slate-200/80 shadow-sm transition-all hover:border-brand-200 hover:shadow-md">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-2">
+            <span class="w-5 h-5 rounded-lg bg-brand-100 text-brand-700 text-[11px] flex items-center justify-center font-bold">1</span>
+            Target PDF File
+          </label>
+          <span id="pdfFileName" class="text-[11px] text-slate-400 truncate max-w-[150px] font-medium"></span>
+        </div>
+
+        <div id="pdfDropZone" class="border-2 border-dashed border-slate-200 hover:border-brand-500 rounded-xl p-4 text-center cursor-pointer transition bg-slate-50/50 hover:bg-brand-50/30 relative group">
+          <input type="file" id="pdfFileInput" accept="application/pdf" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+          <div class="flex flex-col items-center justify-center py-1.5">
+            <div class="w-11 h-11 rounded-2xl bg-rose-50 text-rose-500 flex items-center justify-center mb-2 group-hover:scale-110 group-hover:rotate-3 transition duration-200 shadow-sm">
+              <i class="fa-solid fa-file-pdf text-xl"></i>
+            </div>
+            <p class="text-xs font-bold text-slate-700">Choose or Drop PDF</p>
+            <p class="text-[11px] text-slate-400 mt-0.5">Applies seal to all pages automatically</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Upload Stamp / Signature & Draw modal trigger -->
+      <div class="glass-card rounded-2xl p-4.5 border border-slate-200/80 shadow-sm transition-all hover:border-indigo-200 hover:shadow-md">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-2">
+            <span class="w-5 h-5 rounded-lg bg-indigo-100 text-indigo-700 text-[11px] flex items-center justify-center font-bold">2</span>
+            Stamp or Signature
+          </label>
+          <span id="imgFileName" class="text-[11px] text-slate-400 truncate max-w-[140px] font-medium"></span>
+        </div>
+
+        <div id="imgDropZone" class="border-2 border-dashed border-slate-200 hover:border-indigo-500 rounded-xl p-4 text-center cursor-pointer transition bg-slate-50/50 hover:bg-indigo-50/30 relative group">
+          <input type="file" id="imgFileInput" accept="image/png, image/jpeg, image/jpg, image/webp" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+          <div class="flex flex-col items-center justify-center py-1.5">
+            <div class="w-11 h-11 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-2 group-hover:scale-110 group-hover:-rotate-3 transition duration-200 shadow-sm">
+              <i class="fa-solid fa-signature text-xl"></i>
+            </div>
+            <p class="text-xs font-bold text-slate-700">Drop Stamp, Seal or Signature</p>
+            <p class="text-[11px] text-slate-400 mt-0.5">PNG (Transparent) or JPG</p>
+          </div>
+        </div>
+
+        <!-- Extra Creation Options (Sample or Draw) -->
+        <div class="mt-3 grid grid-cols-2 gap-2 pt-2 border-t border-slate-100">
+          <button id="openDrawModalBtn" type="button" class="py-2 px-2.5 rounded-xl border border-slate-200 hover:border-brand-300 bg-white hover:bg-brand-50/50 text-[11px] font-semibold text-slate-700 flex items-center justify-center gap-1.5 transition">
+            <i class="fa-solid fa-pen-nib text-brand-600"></i> Draw Signature
+          </button>
+          <button id="sampleStampBtn" type="button" class="py-2 px-2.5 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white hover:bg-indigo-50/50 text-[11px] font-semibold text-slate-700 flex items-center justify-center gap-1.5 transition">
+            <i class="fa-solid fa-certificate text-indigo-600"></i> Sample Seal
+          </button>
+        </div>
+
+        <!-- Background Transparency Filter Controls -->
+        <div id="transparencyControls" class="mt-3 pt-3 border-t border-slate-100 space-y-2">
+          <div class="flex items-center justify-between">
+            <label class="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
+              <i class="fa-solid fa-wand-magic-sparkles text-brand-600 text-[11px]"></i>
+              <span>Remove Background</span>
+            </label>
+            <input type="checkbox" id="autoRemoveBgToggle" checked class="w-4 h-4 accent-brand-600 cursor-pointer rounded">
+          </div>
+          
+          <div id="bgThresholdWrapper" class="space-y-1">
+            <div class="flex justify-between text-[11px] text-slate-500">
+              <span>White Cutoff Threshold</span>
+              <span id="bgThresholdLabel" class="font-mono font-bold text-brand-600">30</span>
+            </div>
+            <input type="range" id="bgThresholdSlider" min="5" max="80" value="30" step="1" class="w-full accent-brand-600 cursor-pointer h-1.5 bg-slate-200 rounded-lg">
+          </div>
+        </div>
+
+        <!-- Thumbnail & Remove -->
+        <div id="imgPreviewWrapper" class="mt-3 hidden items-center justify-between bg-slate-50/90 p-2.5 rounded-xl border border-slate-200">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-lg bg-white border border-slate-200 flex items-center justify-center overflow-hidden checkered-pattern shadow-xs">
+              <img id="imgThumbnail" class="max-w-full max-h-full object-contain" alt="Stamp Preview">
+            </div>
+            <div>
+              <p id="imgInfoText" class="text-xs font-bold text-slate-800">Stamp Active</p>
+              <p id="imgDimsText" class="text-[11px] text-slate-400">Ready</p>
+            </div>
+          </div>
+          <button id="clearImgBtn" class="text-slate-400 hover:text-rose-500 hover:bg-rose-50 p-2 rounded-lg transition" title="Remove stamp">
+            <i class="fa-regular fa-trash-can text-sm"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: Positioning & Sizing Settings -->
+      <div class="glass-card rounded-2xl p-4.5 border border-slate-200/80 shadow-sm space-y-4">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-2">
+            <span class="w-5 h-5 rounded-lg bg-teal-100 text-teal-700 text-[11px] flex items-center justify-center font-bold">3</span>
+            Placement & Appearance
+          </h2>
+          <button id="resetSettingsBtn" class="text-[11px] text-brand-600 hover:text-brand-800 font-semibold transition">Reset</button>
+        </div>
+
+        <!-- Position Grid Buttons -->
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <label class="text-xs font-semibold text-slate-600">Target Corner Position</label>
+            <span class="text-[10px] text-slate-400">Default: Bottom Right</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <button type="button" data-pos="bottom-right" class="pos-btn active py-2.5 px-3 rounded-xl border font-semibold text-left flex items-center justify-between bg-brand-50 border-brand-500 text-brand-700 shadow-xs transition">
+              <span>Bottom Right</span>
+              <i class="fa-solid fa-arrow-down-long rotate-[-45deg] text-xs"></i>
+            </button>
+            <button type="button" data-pos="bottom-left" class="pos-btn py-2.5 px-3 rounded-xl border font-semibold text-left flex items-center justify-between bg-white border-slate-200 text-slate-600 hover:bg-slate-50 transition">
+              <span>Bottom Left</span>
+              <i class="fa-solid fa-arrow-down-long rotate-[45deg] text-xs"></i>
+            </button>
+            <button type="button" data-pos="top-right" class="pos-btn py-2.5 px-3 rounded-xl border font-semibold text-left flex items-center justify-between bg-white border-slate-200 text-slate-600 hover:bg-slate-50 transition">
+              <span>Top Right</span>
+              <i class="fa-solid fa-arrow-up-long rotate-[45deg] text-xs"></i>
+            </button>
+            <button type="button" data-pos="center" class="pos-btn py-2.5 px-3 rounded-xl border font-semibold text-left flex items-center justify-between bg-white border-slate-200 text-slate-600 hover:bg-slate-50 transition">
+              <span>Centered</span>
+              <i class="fa-regular fa-circle-dot text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Size Slider -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between text-xs font-semibold text-slate-700">
+            <span>Stamp Width</span>
+            <span id="stampWidthLabel" class="text-brand-600 font-mono font-bold">120 px</span>
+          </div>
+          <input type="range" id="stampWidthSlider" min="40" max="350" value="120" step="5" class="w-full accent-brand-600 cursor-pointer h-1.5 bg-slate-200 rounded-lg">
+        </div>
+
+        <!-- Margins -->
+        <div class="grid grid-cols-2 gap-3 pt-1">
+          <div class="space-y-1.5">
+            <div class="flex justify-between text-xs font-semibold text-slate-700">
+              <span>H-Margin</span>
+              <span id="marginHLabel" class="text-brand-600 font-mono font-bold">25 px</span>
+            </div>
+            <input type="range" id="marginHSlider" min="0" max="150" value="25" step="2" class="w-full accent-brand-600 cursor-pointer h-1.5 bg-slate-200 rounded-lg">
+          </div>
+          <div class="space-y-1.5">
+            <div class="flex justify-between text-xs font-semibold text-slate-700">
+              <span>V-Margin</span>
+              <span id="marginVLabel" class="text-brand-600 font-mono font-bold">25 px</span>
+            </div>
+            <input type="range" id="marginVSlider" min="0" max="150" value="25" step="2" class="w-full accent-brand-600 cursor-pointer h-1.5 bg-slate-200 rounded-lg">
+          </div>
+        </div>
+
+        <!-- Opacity Slider -->
+        <div class="space-y-1.5 pt-1">
+          <div class="flex justify-between text-xs font-semibold text-slate-700">
+            <span>Stamp Opacity</span>
+            <span id="opacityLabel" class="text-brand-600 font-mono font-bold">100%</span>
+          </div>
+          <input type="range" id="opacitySlider" min="10" max="100" value="100" step="5" class="w-full accent-brand-600 cursor-pointer h-1.5 bg-slate-200 rounded-lg">
+        </div>
+
+        <!-- Target Pages Selection -->
+        <div class="pt-2 border-t border-slate-100">
+          <label class="block text-xs font-semibold text-slate-600 mb-2">Apply Across Pages</label>
+          <div class="grid grid-cols-4 gap-1.5 text-xs">
+            <label class="flex items-center justify-center gap-1 border border-brand-200 bg-brand-50/40 text-brand-700 rounded-xl py-2 px-1 cursor-pointer font-semibold transition hover:bg-brand-50 text-[11px]">
+              <input type="radio" name="pageScope" value="all" checked class="accent-brand-600">
+              <span>All</span>
+            </label>
+            <label class="flex items-center justify-center gap-1 border border-slate-200 bg-white text-slate-600 rounded-xl py-2 px-1 cursor-pointer font-semibold transition hover:bg-slate-50 text-[11px]">
+              <input type="radio" name="pageScope" value="first" class="accent-brand-600">
+              <span>1st</span>
+            </label>
+            <label class="flex items-center justify-center gap-1 border border-slate-200 bg-white text-slate-600 rounded-xl py-2 px-1 cursor-pointer font-semibold transition hover:bg-slate-50 text-[11px]">
+              <input type="radio" name="pageScope" value="last" class="accent-brand-600">
+              <span>Last</span>
+            </label>
+            <label class="flex items-center justify-center gap-1 border border-slate-200 bg-white text-slate-600 rounded-xl py-2 px-1 cursor-pointer font-semibold transition hover:bg-slate-50 text-[11px]">
+              <input type="radio" name="pageScope" value="custom" class="accent-brand-600">
+              <span>Custom</span>
+            </label>
+          </div>
+
+          <!-- Custom Page Range Input Box -->
+          <div id="customRangeWrapper" class="mt-2.5 hidden">
+            <div class="flex items-center justify-between text-[11px] mb-1 text-slate-600 font-medium">
+              <span>Enter Pages / Ranges:</span>
+              <span id="rangeValidationHint" class="text-slate-400 font-mono text-[10px]">e.g. 1-3, 5</span>
+            </div>
+            <div class="relative">
+              <input 
+                type="text" 
+                id="customRangeInput" 
+                placeholder="e.g. 1-2, 4" 
+                value="1" 
+                class="w-full text-xs font-mono py-2 pl-8 pr-3 bg-white border border-slate-300 rounded-xl focus:border-brand-500 focus:ring-1 focus:ring-brand-500 outline-none transition text-slate-700"
+              >
+              <i class="fa-solid fa-hashtag absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-[11px]"></i>
+            </div>
+            <p id="customRangeFeedback" class="text-[10px] text-brand-600 mt-1 font-medium"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Button Area -->
+      <div class="space-y-2 pt-1">
+        <button id="batchApplyBtn" class="w-full py-3.5 px-4 bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-700 hover:to-indigo-700 text-white font-bold text-sm rounded-xl shadow-lg shadow-brand-500/25 flex items-center justify-center gap-2 transition duration-200 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed">
+          <i class="fa-solid fa-stamp text-base"></i>
+          <span>Apply to All Pages</span>
+        </button>
+        <p class="text-center text-[11px] text-slate-400 font-medium">
+          <i class="fa-solid fa-lock text-emerald-500 mr-1"></i>
+          Processed 100% locally. Safe for confidential & legal documents.
+        </p>
+      </div>
+
+    </aside>
+
+    <!-- Right Live Preview Section -->
+    <section class="flex-1 glass-card rounded-2xl border border-slate-200/80 shadow-sm flex flex-col overflow-hidden">
+      
+      <!-- Preview Header & Navigation Toolbar -->
+      <div class="px-5 py-3 border-b border-slate-200/80 flex flex-wrap items-center justify-between gap-3 bg-white/60">
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <h2 class="text-sm font-bold text-slate-800">Document Canvas</h2>
+          </div>
+          <span id="previewTag" class="text-[11px] bg-brand-50 text-brand-700 border border-brand-200/60 px-2.5 py-0.5 rounded-full font-semibold hidden">
+            <i class="fa-solid fa-wand-magic-sparkles text-[10px] mr-1"></i> Live Interactive Preview
+          </span>
+        </div>
+
+        <!-- Page Switcher & Zoom Controls -->
+        <div id="pageControls" class="flex items-center space-x-1.5 text-xs font-semibold">
+          <button id="prevPageBtn" disabled class="w-8 h-8 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 disabled:opacity-30 disabled:hover:bg-white flex items-center justify-center transition shadow-2xs">
+            <i class="fa-solid fa-chevron-left text-xs"></i>
+          </button>
+          <div class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-mono text-[11px]">
+            Page <span id="currentPageNum" class="font-bold text-slate-900">1</span> of <span id="totalPagesNum" class="font-bold text-slate-900">1</span>
+          </div>
+          <button id="nextPageBtn" disabled class="w-8 h-8 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 disabled:opacity-30 disabled:hover:bg-white flex items-center justify-center transition shadow-2xs">
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+          </button>
+          
+          <div class="h-4 w-px bg-slate-200 mx-1.5"></div>
+
+          <!-- Zoom Slider -->
+          <button id="zoomOutBtn" class="w-8 h-8 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 flex items-center justify-center transition shadow-2xs" title="Zoom Out">
+            <i class="fa-solid fa-minus text-xs"></i>
+          </button>
+          <span id="zoomLevelLabel" class="w-12 text-center text-slate-600 text-[11px] font-mono">100%</span>
+          <button id="zoomInBtn" class="w-8 h-8 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 flex items-center justify-center transition shadow-2xs" title="Zoom In">
+            <i class="fa-solid fa-plus text-xs"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Preview Canvas Area -->
+      <div id="previewContainer" class="flex-1 overflow-auto p-4 sm:p-8 flex items-center justify-center bg-slate-100/70 relative min-h-[520px]">
+        
+        <!-- Empty State (When no PDF is loaded) -->
+        <div id="emptyState" class="text-center max-w-md p-8 bg-white/80 rounded-2xl border border-slate-200/80 shadow-sm backdrop-blur-xs">
+          <div class="relative w-20 h-20 mx-auto mb-4">
+            <div class="absolute inset-0 bg-brand-500/10 rounded-2xl transform rotate-6"></div>
+            <div class="relative w-20 h-20 rounded-2xl bg-gradient-to-tr from-brand-50 to-indigo-50 border border-brand-100 text-brand-600 flex items-center justify-center shadow-inner">
+              <i class="fa-regular fa-file-pdf text-4xl"></i>
+            </div>
+          </div>
+          <h3 class="text-base font-extrabold text-slate-800 mb-1.5">No Document Loaded</h3>
+          <p class="text-xs text-slate-500 mb-6 leading-relaxed">
+            Drop any PDF file to stamp your signature or company seal onto the bottom right of each page in 1-click.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-2.5">
+            <button id="loadSamplePdfBtn" class="w-full sm:w-auto px-4 py-2.5 bg-brand-50 hover:bg-brand-100 text-brand-700 border border-brand-200 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-file-contract"></i> Try Sample 3-Page Contract
+            </button>
+          </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="absolute inset-0 bg-white/85 backdrop-blur-xs flex flex-col items-center justify-center z-30 hidden">
+          <div class="relative w-12 h-12 mb-3">
+            <div class="w-12 h-12 rounded-full border-4 border-brand-100 border-t-brand-600 animate-spin"></div>
+            <i class="fa-solid fa-stamp text-brand-600 absolute inset-0 m-auto flex items-center justify-center text-sm"></i>
+          </div>
+          <p id="loadingText" class="text-xs font-bold text-slate-700">Rendering preview...</p>
+        </div>
+
+        <!-- Render Wrapper for Canvas + Overlay Stamp -->
+        <div id="pageViewport" class="relative hidden bg-white rounded-lg pdf-elevation select-none transition-transform duration-100">
+          <!-- PDF Canvas -->
+          <canvas id="pdfCanvas" class="block rounded-lg"></canvas>
+          
+          <!-- Virtual Stamp Floating Layer (With drag support) -->
+          <div id="stampOverlay" class="absolute interactive-stamp group hidden" title="Drag to reposition stamp">
+            <div class="w-full h-full relative border-2 border-dashed border-transparent group-hover:border-brand-500/70 rounded-md transition-all">
+              <img id="stampOverlayImg" class="w-full h-full object-contain filter drop-shadow-md pointer-events-none" alt="Stamp Overlay">
+              <!-- Drag Badge Indicator on hover -->
+              <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[9px] px-2 py-0.5 rounded font-medium opacity-0 group-hover:opacity-100 transition whitespace-nowrap pointer-events-none shadow-md">
+                <i class="fa-solid fa-arrows-up-down-left-right mr-1"></i> Drag to adjust
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Preview Footer info -->
+      <div class="px-5 py-2.5 bg-white/70 border-t border-slate-200/80 text-xs text-slate-500 flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-2">
+          <i class="fa-regular fa-compass text-brand-600"></i>
+          <span id="previewStatusText" class="font-medium text-slate-600">Bottom-Right placement active on all pages</span>
+        </div>
+        <div class="flex items-center gap-3 text-[11px] text-slate-400">
+          <span><kbd class="px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-600 font-mono text-[10px]">Tip</kbd> You can also drag the stamp directly on the canvas</span>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Website Footer -->
+  <footer class="glass-card border-t border-slate-200/80 py-4 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center font-bold text-xs">
+          <i class="fa-solid fa-stamp text-[10px]"></i>
+        </div>
+        <span class="font-bold text-slate-700">DocuStamp<span class="text-brand-600">Pro</span></span>
+        <span class="text-slate-300">•</span>
+        <span>Secure In-Browser PDF Stamping</span>
+      </div>
+
+      <div class="flex items-center gap-1.5 font-medium">
+        <span>Designed and Developed by</span>
+        <span class="font-bold text-slate-800 bg-brand-50/80 text-brand-700 px-2.5 py-1 rounded-lg border border-brand-200/70 shadow-2xs inline-flex items-center gap-1.5">
+          <i class="fa-solid fa-code text-[11px] text-brand-600"></i> Pratik Bihari
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Draw Signature Modal -->
+  <div id="drawModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 animate-in fade-in duration-200">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">
+            <i class="fa-solid fa-pen-nib"></i>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900">Draw Your Signature</h3>
+            <p class="text-xs text-slate-500">Sign directly using your mouse or finger</p>
+          </div>
+        </div>
+        <button id="closeDrawModalBtn" class="text-slate-400 hover:text-slate-700 w-8 h-8 rounded-lg flex items-center justify-center">
+          <i class="fa-solid fa-xmark text-base"></i>
+        </button>
+      </div>
+
+      <div class="relative rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 overflow-hidden checkered-pattern h-48 mb-4">
+        <canvas id="signaturePad" class="w-full h-full block cursor-crosshair"></canvas>
+        <div id="signaturePadHint" class="absolute inset-0 flex items-center justify-center pointer-events-none text-xs text-slate-400 font-medium">
+          Sign inside this area
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-1.5">
+          <button id="sigColorBlue" class="w-6 h-6 rounded-full bg-blue-700 ring-2 ring-offset-2 ring-blue-700 transition" title="Blue ink"></button>
+          <button id="sigColorBlack" class="w-6 h-6 rounded-full bg-slate-900 ring-0 ring-offset-2 transition" title="Black ink"></button>
+          <button id="clearSigPadBtn" class="ml-2 text-xs text-rose-600 hover:text-rose-700 font-semibold px-2 py-1 rounded hover:bg-rose-50 transition">
+            Clear
+          </button>
+        </div>
+        <button id="saveSignatureBtn" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold shadow-md shadow-brand-500/20 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-check"></i> Use This Signature
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Implementation -->
+  <script>
+    // Initialize PDF.js worker
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    // Application State
+    const state = {
+      pdfBytes: null,
+      pdfJsDoc: null,
+      totalNumPages: 0,
+      currentPage: 1,
+      zoom: 1.0,
+      
+      originalImageElement: null,
+      stampImageBytes: null,
+      stampImageMime: null,
+      stampDataUrl: null,
+      stampWidthRatio: 1,
+      removeWhiteBg: true,
+      whiteThreshold: 30,
+      
+      // Placement config (Points)
+      position: 'bottom-right',
+      stampWidth: 120,
+      marginH: 25,
+      marginV: 25,
+      opacity: 1.0,
+      pageScope: 'all',
+      customRangeString: '1',
+      
+      renderedScale: 1.0,
+      isProcessing: false,
+      isDraggingStamp: false,
+      dragStartX: 0,
+      dragStartY: 0,
+      initialMarginH: 0,
+      initialMarginV: 0
+    };
+
+    // DOM Elements
+    const pdfFileInput = document.getElementById('pdfFileInput');
+    const pdfDropZone = document.getElementById('pdfDropZone');
+    const imgFileInput = document.getElementById('imgFileInput');
+    const imgDropZone = document.getElementById('imgDropZone');
+    const pdfFileName = document.getElementById('pdfFileName');
+    const imgFileName = document.getElementById('imgFileName');
+    const pageCountBadge = document.getElementById('pageCountBadge');
+    
+    const sampleStampBtn = document.getElementById('sampleStampBtn');
+    const loadSamplePdfBtn = document.getElementById('loadSamplePdfBtn');
+    const clearImgBtn = document.getElementById('clearImgBtn');
+    const imgPreviewWrapper = document.getElementById('imgPreviewWrapper');
+    const imgThumbnail = document.getElementById('imgThumbnail');
+    const imgDimsText = document.getElementById('imgDimsText');
+
+    const stampWidthSlider = document.getElementById('stampWidthSlider');
+    const stampWidthLabel = document.getElementById('stampWidthLabel');
+    const marginHSlider = document.getElementById('marginHSlider');
+    const marginHLabel = document.getElementById('marginHLabel');
+    const marginVSlider = document.getElementById('marginVSlider');
+    const marginVLabel = document.getElementById('marginVLabel');
+    const opacitySlider = document.getElementById('opacitySlider');
+    const opacityLabel = document.getElementById('opacityLabel');
+    const resetSettingsBtn = document.getElementById('resetSettingsBtn');
+
+    const autoRemoveBgToggle = document.getElementById('autoRemoveBgToggle');
+    const bgThresholdSlider = document.getElementById('bgThresholdSlider');
+    const bgThresholdLabel = document.getElementById('bgThresholdLabel');
+    const bgThresholdWrapper = document.getElementById('bgThresholdWrapper');
+
+    const posButtons = document.querySelectorAll('.pos-btn');
+    const pageScopeInputs = document.querySelectorAll('input[name="pageScope"]');
+    const customRangeWrapper = document.getElementById('customRangeWrapper');
+    const customRangeInput = document.getElementById('customRangeInput');
+    const customRangeFeedback = document.getElementById('customRangeFeedback');
+
+    const emptyState = document.getElementById('emptyState');
+    const pageViewport = document.getElementById('pageViewport');
+    const pdfCanvas = document.getElementById('pdfCanvas');
+    const stampOverlay = document.getElementById('stampOverlay');
+    const stampOverlayImg = document.getElementById('stampOverlayImg');
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    const loadingText = document.getElementById('loadingText');
+
+    const prevPageBtn = document.getElementById('prevPageBtn');
+    const nextPageBtn = document.getElementById('nextPageBtn');
+    const currentPageNum = document.getElementById('currentPageNum');
+    const totalPagesNum = document.getElementById('totalPagesNum');
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+    const zoomLevelLabel = document.getElementById('zoomLevelLabel');
+
+    const batchApplyBtn = document.getElementById('batchApplyBtn');
+    const downloadPdfBtn = document.getElementById('downloadPdfBtn');
+    const previewStatusText = document.getElementById('previewStatusText');
+    const previewTag = document.getElementById('previewTag');
+
+    // Signature Drawer Modal Elements
+    const drawModal = document.getElementById('drawModal');
+    const openDrawModalBtn = document.getElementById('openDrawModalBtn');
+    const closeDrawModalBtn = document.getElementById('closeDrawModalBtn');
+    const signaturePad = document.getElementById('signaturePad');
+    const signaturePadHint = document.getElementById('signaturePadHint');
+    const clearSigPadBtn = document.getElementById('clearSigPadBtn');
+    const saveSignatureBtn = document.getElementById('saveSignatureBtn');
+    const sigColorBlue = document.getElementById('sigColorBlue');
+    const sigColorBlack = document.getElementById('sigColorBlack');
+
+    let sigCtx = null;
+    let isDrawing = false;
+    let sigInkColor = '#1d4ed8'; // default rich blue ink
+
+    // Toast Notifications
+    function showToast(message, type = 'info') {
+      const toastBox = document.getElementById('toastBox');
+      const toast = document.createElement('div');
+      
+      const colors = {
+        success: 'bg-emerald-600 text-white',
+        error: 'bg-rose-600 text-white',
+        info: 'bg-slate-900 text-white',
+        warning: 'bg-amber-600 text-white'
+      };
+
+      const icons = {
+        success: 'fa-circle-check',
+        error: 'fa-triangle-exclamation',
+        info: 'fa-circle-info',
+        warning: 'fa-circle-exclamation'
+      };
+
+      toast.className = `${colors[type] || colors.info} px-4 py-3 rounded-2xl shadow-xl flex items-center space-x-3 text-xs font-semibold pointer-events-auto transform transition-all duration-300 translate-y-3 opacity-0`;
+      toast.innerHTML = `
+        <i class="fa-solid ${icons[type]} text-base"></i>
+        <span>${message}</span>
+      `;
+      
+      toastBox.appendChild(toast);
+      setTimeout(() => {
+        toast.classList.remove('translate-y-3', 'opacity-0');
+      }, 10);
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-3');
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    function setLoading(isLoading, text = 'Processing...') {
+      state.isProcessing = isLoading;
+      if (isLoading) {
+        loadingText.textContent = text;
+        loadingOverlay.classList.remove('hidden');
+      } else {
+        loadingOverlay.classList.add('hidden');
+      }
+    }
+
+    // PDF Loading & Parsing
+    async function handlePdfFile(file) {
+      if (!file || file.type !== 'application/pdf') {
+        showToast('Please select a valid PDF file.', 'error');
+        return;
+      }
+      setLoading(true, 'Reading document structure...');
+      try {
+        const arrayBuffer = await file.arrayBuffer();
+        state.pdfBytes = arrayBuffer;
+        pdfFileName.textContent = file.name;
+        
+        const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer.slice(0) });
+        state.pdfJsDoc = await loadingTask.promise;
+        state.totalNumPages = state.pdfJsDoc.numPages;
+        state.currentPage = 1;
+
+        totalPagesNum.textContent = state.totalNumPages;
+        pageCountBadge.innerHTML = `<i class="fa-solid fa-layer-group mr-1.5 text-indigo-500"></i> ${state.totalNumPages} Page${state.totalNumPages > 1 ? 's' : ''}`;
+        pageCountBadge.classList.remove('hidden');
+
+        emptyState.classList.add('hidden');
+        pageViewport.classList.remove('hidden');
+        previewTag.classList.remove('hidden');
+        downloadPdfBtn.disabled = false;
+
+        updatePaginationUI();
+        await renderCurrentPdfPage();
+        showToast(`Loaded "${file.name}" (${state.totalNumPages} pages).`, 'success');
+      } catch (err) {
+        console.error(err);
+        showToast('Could not open PDF file. Verify it is unencrypted.', 'error');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    // Render Current Page
+    async function renderCurrentPdfPage() {
+      if (!state.pdfJsDoc) return;
+      try {
+        const page = await state.pdfJsDoc.getPage(state.currentPage);
+        
+        const unscaledViewport = page.getViewport({ scale: 1.0 });
+        const container = document.getElementById('previewContainer');
+        const containerWidth = container.clientWidth - 80;
+        let baseScale = (containerWidth / unscaledViewport.width);
+        if (baseScale > 1.35) baseScale = 1.35;
+        if (baseScale < 0.55) baseScale = 0.55;
+        
+        const effectiveScale = baseScale * state.zoom;
+        state.renderedScale = effectiveScale;
+
+        const viewport = page.getViewport({ scale: effectiveScale });
+        
+        pdfCanvas.height = viewport.height;
+        pdfCanvas.width = viewport.width;
+
+        const ctx = pdfCanvas.getContext('2d');
+        const renderContext = {
+          canvasContext: ctx,
+          viewport: viewport
+        };
+
+        await page.render(renderContext).promise;
+        
+        pageViewport.style.width = `${viewport.width}px`;
+        pageViewport.style.height = `${viewport.height}px`;
+
+        updateStampOverlayPosition(viewport.width, viewport.height);
+      } catch (err) {
+        console.error('Render error:', err);
+      }
+    }
+
+    // Image / Stamp Loading
+    async function handleStampImageFile(file) {
+      if (!file || !file.type.startsWith('image/')) {
+        showToast('Please select a PNG or JPG image file.', 'error');
+        return;
+      }
+      
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          state.originalImageElement = img;
+          imgFileName.textContent = file.name;
+          processAndApplyImage();
+          showToast('Stamp imported & background processed!', 'success');
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Process Image with White/Light Background Removal to Pure Transparent PNG
+    function processAndApplyImage() {
+      if (!state.originalImageElement) return;
+
+      const img = state.originalImageElement;
+      const canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth || img.width;
+      canvas.height = img.naturalHeight || img.height;
+      const ctx = canvas.getContext('2d');
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0);
+
+      // Apply background transparency if enabled
+      if (state.removeWhiteBg) {
+        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imgData.data;
+        const threshold = state.whiteThreshold;
+        const minThreshold = 255 - threshold;
+
+        for (let i = 0; i < data.length; i += 4) {
+          const r = data[i];
+          const g = data[i + 1];
+          const b = data[i + 2];
+          const a = data[i + 3];
+
+          if (a === 0) continue;
+
+          // If the pixel is close to pure white/off-white, make it transparent
+          if (r >= minThreshold && g >= minThreshold && b >= minThreshold) {
+            data[i + 3] = 0; // Transparent
+          } else {
+            // Smooth edge feathering for semi-bright edge artifacts
+            const brightness = (r + g + b) / 3;
+            if (brightness > (minThreshold - 25)) {
+              const alphaFactor = (255 - brightness) / 25;
+              data[i + 3] = Math.min(data[i + 3], Math.floor(alphaFactor * 255));
+            }
+          }
+        }
+        ctx.putImageData(imgData, 0, 0);
+      }
+
+      canvas.toBlob(async (blob) => {
+        const arrayBuffer = await blob.arrayBuffer();
+        state.stampImageBytes = arrayBuffer;
+        state.stampImageMime = 'image/png';
+        state.stampDataUrl = canvas.toDataURL('image/png');
+
+        imgThumbnail.src = state.stampDataUrl;
+        stampOverlayImg.src = state.stampDataUrl;
+        state.stampWidthRatio = canvas.width / canvas.height;
+
+        imgDimsText.textContent = `${canvas.width} × ${canvas.height} px (Transparent)`;
+        imgPreviewWrapper.classList.remove('hidden');
+        imgPreviewWrapper.classList.add('flex');
+
+        updateStampOverlayPosition();
+      }, 'image/png');
+    }
+
+    // Helper: Parse custom page range (e.g. "1-3, 5, 8-10") into a Set of 1-based page numbers
+    function parseCustomPageRanges(rangeStr, maxPages) {
+      const selectedPages = new Set();
+      if (!rangeStr || !rangeStr.trim()) return selectedPages;
+
+      const parts = rangeStr.split(',');
+      for (let part of parts) {
+        part = part.trim();
+        if (!part) continue;
+
+        if (part.includes('-')) {
+          const [startStr, endStr] = part.split('-');
+          const start = parseInt(startStr.trim(), 10);
+          const end = parseInt(endStr.trim(), 10);
+
+          if (!isNaN(start) && !isNaN(end)) {
+            const min = Math.max(1, Math.min(start, end));
+            const max = maxPages ? Math.min(maxPages, Math.max(start, end)) : Math.max(start, end);
+            for (let p = min; p <= max; p++) {
+              selectedPages.add(p);
+            }
+          }
+        } else {
+          const p = parseInt(part, 10);
+          if (!isNaN(p) && p >= 1 && (!maxPages || p <= maxPages)) {
+            selectedPages.add(p);
+          }
+        }
+      }
+      return selectedPages;
+    }
+
+    // Check if the current page should display the stamp
+    function shouldStampPage(pageNum, totalPages) {
+      if (state.pageScope === 'all') return true;
+      if (state.pageScope === 'first') return pageNum === 1;
+      if (state.pageScope === 'last') return pageNum === totalPages;
+      if (state.pageScope === 'custom') {
+        const pagesSet = parseCustomPageRanges(state.customRangeString, totalPages);
+        return pagesSet.has(pageNum);
+      }
+      return true;
+    }
+
+    // Update Floating Stamp Overlay on Canvas
+    function updateStampOverlayPosition(canvasW, canvasH) {
+      if (!state.stampDataUrl) {
+        stampOverlay.classList.add('hidden');
+        return;
+      }
+
+      const isVisibleOnPage = shouldStampPage(state.currentPage, state.totalNumPages);
+
+      if (!isVisibleOnPage) {
+        stampOverlay.classList.add('hidden');
+        return;
+      }
+
+      stampOverlay.classList.remove('hidden');
+
+      const widthPx = canvasW || pdfCanvas.width;
+      const heightPx = canvasH || pdfCanvas.height;
+      const scale = state.renderedScale;
+
+      const stampW = state.stampWidth * scale;
+      const stampH = (state.stampWidth / (state.stampWidthRatio || 1)) * scale;
+      const mH = state.marginH * scale;
+      const mV = state.marginV * scale;
+
+      stampOverlay.style.width = `${stampW}px`;
+      stampOverlay.style.height = `${stampH}px`;
+      stampOverlay.style.opacity = state.opacity;
+
+      stampOverlay.style.top = 'auto';
+      stampOverlay.style.bottom = 'auto';
+      stampOverlay.style.left = 'auto';
+      stampOverlay.style.right = 'auto';
+
+      switch (state.position) {
+        case 'bottom-right':
+          stampOverlay.style.bottom = `${mV}px`;
+          stampOverlay.style.right = `${mH}px`;
+          break;
+        case 'bottom-left':
+          stampOverlay.style.bottom = `${mV}px`;
+          stampOverlay.style.left = `${mH}px`;
+          break;
+        case 'top-right':
+          stampOverlay.style.top = `${mV}px`;
+          stampOverlay.style.right = `${mH}px`;
+          break;
+        case 'center':
+          stampOverlay.style.top = `${(heightPx - stampH) / 2}px`;
+          stampOverlay.style.left = `${(widthPx - stampW) / 2}px`;
+          break;
+        default:
+          stampOverlay.style.bottom = `${mV}px`;
+          stampOverlay.style.right = `${mH}px`;
+      }
+    }
+
+    // Batch Stamp Process
+    async function processAndStampPdf(autoDownload = false) {
+      if (!state.pdfBytes) {
+        showToast('Please upload or load a PDF document first.', 'warning');
+        return;
+      }
+      if (!state.stampImageBytes) {
+        showToast('Please upload or draw a stamp/signature.', 'warning');
+        return;
+      }
+
+      setLoading(true, 'Stamping all pages of your PDF in 1 click...');
+
+      try {
+        const { PDFDocument } = PDFLib;
+        const pdfDoc = await PDFDocument.load(state.pdfBytes.slice(0));
+        
+        let embeddedImage;
+        if (state.stampImageMime === 'image/jpeg') {
+          embeddedImage = await pdfDoc.embedJpg(state.stampImageBytes);
+        } else {
+          embeddedImage = await pdfDoc.embedPng(state.stampImageBytes);
+        }
+
+        const pages = pdfDoc.getPages();
+        const total = pages.length;
+
+        // Determine custom pages set if applicable
+        const targetPagesSet = state.pageScope === 'custom' 
+          ? parseCustomPageRanges(state.customRangeString, total) 
+          : null;
+
+        let appliedCount = 0;
+
+        pages.forEach((page, index) => {
+          const pageNum = index + 1;
+
+          if (state.pageScope === 'first' && pageNum !== 1) return;
+          if (state.pageScope === 'last' && pageNum !== total) return;
+          if (state.pageScope === 'custom' && (!targetPagesSet || !targetPagesSet.has(pageNum))) return;
+
+          const { width, height } = page.getSize();
+          
+          const imgAspect = embeddedImage.width / embeddedImage.height;
+          const drawWidth = Number(state.stampWidth);
+          const drawHeight = drawWidth / imgAspect;
+
+          const marginX = Number(state.marginH);
+          const marginY = Number(state.marginV);
+
+          let x = 0;
+          let y = 0;
+
+          switch (state.position) {
+            case 'bottom-right':
+              x = width - drawWidth - marginX;
+              y = marginY;
+              break;
+            case 'bottom-left':
+              x = marginX;
+              y = marginY;
+              break;
+            case 'top-right':
+              x = width - drawWidth - marginX;
+              y = height - drawHeight - marginY;
+              break;
+            case 'center':
+              x = (width - drawWidth) / 2;
+              y = (height - drawHeight) / 2;
+              break;
+            default:
+              x = width - drawWidth - marginX;
+              y = marginY;
+          }
+
+          page.drawImage(embeddedImage, {
+            x: Math.max(0, x),
+            y: Math.max(0, y),
+            width: drawWidth,
+            height: drawHeight,
+            opacity: Number(state.opacity)
+          });
+          appliedCount++;
+        });
+
+        if (appliedCount === 0) {
+          showToast('No pages matched the selected range.', 'warning');
+          setLoading(false);
+          return;
+        }
+
+        const stampedPdfBytes = await pdfDoc.save();
+        state.pdfBytes = stampedPdfBytes.buffer;
+        
+        // Reload in previewer
+        const loadingTask = pdfjsLib.getDocument({ data: stampedPdfBytes.slice(0) });
+        state.pdfJsDoc = await loadingTask.promise;
+        await renderCurrentPdfPage();
+
+        showToast(`Ready! Stamped ${appliedCount} page${appliedCount > 1 ? 's' : ''} successfully.`, 'success');
+
+        if (autoDownload) {
+          triggerDownload(stampedPdfBytes, 'Stamped_Document.pdf');
+        }
+
+      } catch (err) {
+        console.error('Batch stamp error:', err);
+        showToast('Error stamping PDF. Verify the image format and try again.', 'error');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    function triggerDownload(bytes, filename = 'Stamped_Document.pdf') {
+      const blob = new Blob([bytes], { type: 'application/pdf' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(link.href);
+      showToast('Document downloaded!', 'info');
+    }
+
+    // Built-in Sample Seal Generator
+    function generateSampleStamp() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 340;
+      canvas.height = 340;
+      const ctx = canvas.getContext('2d');
+
+      ctx.clearRect(0, 0, 340, 340);
+      ctx.save();
+      ctx.translate(170, 170);
+
+      // Outer rings
+      ctx.beginPath();
+      ctx.arc(0, 0, 150, 0, Math.PI * 2);
+      ctx.strokeStyle = '#4338ca';
+      ctx.lineWidth = 6;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(0, 0, 136, 0, Math.PI * 2);
+      ctx.strokeStyle = '#6366f1';
+      ctx.lineWidth = 2.5;
+      ctx.setLineDash([8, 5]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.fillStyle = '#312e81';
+      ctx.font = 'bold 16px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('• OFFICIALLY VERIFIED •', 0, -90);
+
+      ctx.fillStyle = '#f59e0b';
+      ctx.font = '22px sans-serif';
+      ctx.fillText('★ ★ ★', 0, -55);
+
+      // Signature stroke
+      ctx.strokeStyle = '#1e3a8a';
+      ctx.lineWidth = 4.5;
+      ctx.beginPath();
+      ctx.moveTo(-90, 15);
+      ctx.bezierCurveTo(-45, -45, -10, 45, 40, -15);
+      ctx.bezierCurveTo(70, -45, 85, 20, 105, 5);
+      ctx.stroke();
+
+      ctx.fillStyle = '#0f172a';
+      ctx.font = 'bold 14px monospace';
+      ctx.fillText('AUTHORIZED SEAL', 0, 50);
+
+      const dateStr = new Date().toISOString().split('T')[0];
+      ctx.font = '11px sans-serif';
+      ctx.fillStyle = '#64748b';
+      ctx.fillText(`ID: #STAMP-${Math.floor(1000 + Math.random() * 9000)} | ${dateStr}`, 0, 75);
+
+      ctx.restore();
+
+      canvas.toBlob(async (blob) => {
+        const img = new Image();
+        img.onload = () => {
+          state.originalImageElement = img;
+          state.stampImageBytes = null; // Will be set by processAndApplyImage
+          imgFileName.textContent = 'Official_Seal_Preset.png';
+          processAndApplyImage();
+          showToast('Sample seal generated without background!', 'success');
+        };
+        img.src = canvas.toDataURL('image/png');
+      }, 'image/png');
+    }
+
+    // Built-in Sample Contract Generator
+    async function generateSamplePdf() {
+      setLoading(true, 'Generating multi-page sample contract...');
+      try {
+        const { PDFDocument, StandardFonts, rgb } = PDFLib;
+        const pdfDoc = await PDFDocument.create();
+        const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+        const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+
+        const titles = [
+          'MASTER SERVICES AGREEMENT - SECTION 1',
+          'SCOPE OF WORK & DELIVERABLES - SECTION 2',
+          'TERMS, WARRANTIES & EXECUTION - SECTION 3'
+        ];
+
+        for (let i = 0; i < 3; i++) {
+          const page = pdfDoc.addPage([595.28, 841.89]);
+          const { width, height } = page.getSize();
+
+          // Header line
+          page.drawRectangle({
+            x: 45,
+            y: height - 60,
+            width: width - 90,
+            height: 2.5,
+            color: rgb(0.3, 0.4, 0.9)
+          });
+
+          page.drawText(titles[i], {
+            x: 45,
+            y: height - 50,
+            size: 13,
+            font: fontBold,
+            color: rgb(0.15, 0.2, 0.4)
+          });
+
+          let textY = height - 100;
+          const paragraphs = [
+            `1.${i + 1} PURPOSE AND REGULATORY COMPLIANCE`,
+            'This agreement outlines mutual professional responsibilities and contractual obligations between both signatory parties.',
+            '',
+            `2.${i + 1} VALIDATION REQUIREMENTS ACROSS PAGES`,
+            'Each individual page of this instrument must bear the identical authorized seal and counter-signature mark placed at the bottom right corner.',
+            '',
+            `3.${i + 1} AUDIT TRAIL AND RECORD RETENTION`,
+            'The signed artifact shall be permanently archived with digital verification stamps intact.',
+            '',
+            '4. CONFIDENTIALITY AND SECURITY GUARANTEE',
+            'All clauses remain active throughout the engagement duration under legal jurisdictions.'
+          ];
+
+          paragraphs.forEach((line) => {
+            if (line.startsWith('1.') || line.startsWith('2.') || line.startsWith('3.') || line.startsWith('4.')) {
+              page.drawText(line, { x: 45, y: textY, size: 10, font: fontBold, color: rgb(0.15, 0.2, 0.3) });
+            } else if (line !== '') {
+              page.drawText(line, { x: 45, y: textY, size: 9.5, font: font, color: rgb(0.35, 0.4, 0.45) });
+            }
+            textY -= 24;
+          });
+
+          // Designated Stamp outline in bottom right
+          page.drawRectangle({
+            x: width - 175,
+            y: 35,
+            width: 140,
+            height: 95,
+            borderColor: rgb(0.75, 0.8, 0.9),
+            borderWidth: 1.5,
+            color: rgb(0.97, 0.98, 1.0)
+          });
+
+          page.drawText('STAMP / SIGN HERE', {
+            x: width - 160,
+            y: 80,
+            size: 8.5,
+            font: fontBold,
+            color: rgb(0.5, 0.6, 0.75)
+          });
+
+          page.drawText(`Page ${i + 1} of 3`, {
+            x: 45,
+            y: 40,
+            size: 9,
+            font: font,
+            color: rgb(0.5, 0.5, 0.5)
+          });
+        }
+
+        const pdfBytes = await pdfDoc.save();
+        state.pdfBytes = pdfBytes.buffer;
+        pdfFileName.textContent = 'Sample_3Page_Agreement.pdf';
+
+        const loadingTask = pdfjsLib.getDocument({ data: pdfBytes.slice(0) });
+        state.pdfJsDoc = await loadingTask.promise;
+        state.totalNumPages = 3;
+        state.currentPage = 1;
+
+        totalPagesNum.textContent = '3';
+        pageCountBadge.innerHTML = `<i class="fa-solid fa-layer-group mr-1.5 text-indigo-500"></i> 3 Pages`;
+        pageCountBadge.classList.remove('hidden');
+
+        emptyState.classList.add('hidden');
+        pageViewport.classList.remove('hidden');
+        previewTag.classList.remove('hidden');
+        downloadPdfBtn.disabled = false;
+
+        updatePaginationUI();
+        await renderCurrentPdfPage();
+        showToast('3-Page sample agreement loaded!', 'success');
+      } catch (e) {
+        console.error(e);
+        showToast('Failed to generate sample PDF', 'error');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    function updatePaginationUI() {
+      currentPageNum.textContent = state.currentPage;
+      totalPagesNum.textContent = state.totalNumPages;
+      prevPageBtn.disabled = state.currentPage <= 1;
+      nextPageBtn.disabled = state.currentPage >= state.totalNumPages;
+    }
+
+    // Interactive Drag to Adjust Stamp Position
+    stampOverlay.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      state.isDraggingStamp = true;
+      state.dragStartX = e.clientX;
+      state.dragStartY = e.clientY;
+      state.initialMarginH = state.marginH;
+      state.initialMarginV = state.marginV;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!state.isDraggingStamp) return;
+      const dx = (e.clientX - state.dragStartX) / state.renderedScale;
+      const dy = (e.clientY - state.dragStartY) / state.renderedScale;
+
+      if (state.position === 'bottom-right') {
+        state.marginH = Math.max(0, Math.min(150, Math.round(state.initialMarginH - dx)));
+        state.marginV = Math.max(0, Math.min(150, Math.round(state.initialMarginV - dy)));
+      } else if (state.position === 'bottom-left') {
+        state.marginH = Math.max(0, Math.min(150, Math.round(state.initialMarginH + dx)));
+        state.marginV = Math.max(0, Math.min(150, Math.round(state.initialMarginV - dy)));
+      } else if (state.position === 'top-right') {
+        state.marginH = Math.max(0, Math.min(150, Math.round(state.initialMarginH - dx)));
+        state.marginV = Math.max(0, Math.min(150, Math.round(state.initialMarginV + dy)));
+      }
+
+      marginHSlider.value = state.marginH;
+      marginHLabel.textContent = `${state.marginH} px`;
+      marginVSlider.value = state.marginV;
+      marginVLabel.textContent = `${state.marginV} px`;
+
+      updateStampOverlayPosition();
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (state.isDraggingStamp) {
+        state.isDraggingStamp = false;
+      }
+    });
+
+    // Drawing Pad Setup
+    function initSignaturePad() {
+      sigCtx = signaturePad.getContext('2d');
+      const rect = signaturePad.getBoundingClientRect();
+      signaturePad.width = rect.width * 2;
+      signaturePad.height = rect.height * 2;
+      sigCtx.scale(2, 2);
+      sigCtx.strokeStyle = sigInkColor;
+      sigCtx.lineWidth = 2.5;
+      sigCtx.lineCap = 'round';
+      sigCtx.lineJoin = 'round';
+    }
+
+    function startDrawing(e) {
+      isDrawing = true;
+      signaturePadHint.classList.add('hidden');
+      const rect = signaturePad.getBoundingClientRect();
+      const x = (e.clientX || e.touches[0].clientX) - rect.left;
+      const y = (e.clientY || e.touches[0].clientY) - rect.top;
+      sigCtx.beginPath();
+      sigCtx.moveTo(x, y);
+    }
+
+    function draw(e) {
+      if (!isDrawing) return;
+      const rect = signaturePad.getBoundingClientRect();
+      const x = (e.clientX || e.touches[0].clientX) - rect.left;
+      const y = (e.clientY || e.touches[0].clientY) - rect.top;
+      sigCtx.lineTo(x, y);
+      sigCtx.stroke();
+    }
+
+    function stopDrawing() {
+      isDrawing = false;
+    }
+
+    signaturePad.addEventListener('mousedown', startDrawing);
+    signaturePad.addEventListener('mousemove', draw);
+    window.addEventListener('mouseup', stopDrawing);
+
+    signaturePad.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      startDrawing(e);
+    });
+    signaturePad.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      draw(e);
+    });
+    signaturePad.addEventListener('touchend', stopDrawing);
+
+    openDrawModalBtn.addEventListener('click', () => {
+      drawModal.classList.remove('hidden');
+      setTimeout(initSignaturePad, 50);
+    });
+
+    closeDrawModalBtn.addEventListener('click', () => {
+      drawModal.classList.add('hidden');
+    });
+
+    clearSigPadBtn.addEventListener('click', () => {
+      sigCtx.clearRect(0, 0, signaturePad.width, signaturePad.height);
+      signaturePadHint.classList.remove('hidden');
+    });
+
+    sigColorBlue.addEventListener('click', () => {
+      sigInkColor = '#1d4ed8';
+      sigCtx.strokeStyle = sigInkColor;
+      sigColorBlue.classList.add('ring-2');
+      sigColorBlack.classList.remove('ring-2');
+    });
+
+    sigColorBlack.addEventListener('click', () => {
+      sigInkColor = '#0f172a';
+      sigCtx.strokeStyle = sigInkColor;
+      sigColorBlack.classList.add('ring-2');
+      sigColorBlue.classList.remove('ring-2');
+    });
+
+    saveSignatureBtn.addEventListener('click', () => {
+      const dataUrl = signaturePad.toDataURL('image/png');
+      const img = new Image();
+      img.onload = () => {
+        state.originalImageElement = img;
+        imgFileName.textContent = 'Drawn_Signature.png';
+        processAndApplyImage();
+        drawModal.classList.add('hidden');
+        showToast('Signature saved as transparent stamp!', 'success');
+      };
+      img.src = dataUrl;
+    });
+
+    // Background Removal Toggle and Threshold Listeners
+    autoRemoveBgToggle.addEventListener('change', (e) => {
+      state.removeWhiteBg = e.target.checked;
+      bgThresholdWrapper.style.opacity = state.removeWhiteBg ? '1' : '0.4';
+      bgThresholdSlider.disabled = !state.removeWhiteBg;
+      processAndApplyImage();
+      showToast(state.removeWhiteBg ? 'White background removed' : 'Original background kept', 'info');
+    });
+
+    bgThresholdSlider.addEventListener('input', (e) => {
+      state.whiteThreshold = parseInt(e.target.value, 10);
+      bgThresholdLabel.textContent = state.whiteThreshold;
+      processAndApplyImage();
+    });
+
+    // File Input Listeners
+    pdfFileInput.addEventListener('change', (e) => {
+      if (e.target.files.length) handlePdfFile(e.target.files[0]);
+    });
+
+    imgFileInput.addEventListener('change', (e) => {
+      if (e.target.files.length) handleStampImageFile(e.target.files[0]);
+    });
+
+    // Drag-Drop PDF
+    pdfDropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      pdfDropZone.classList.add('border-brand-500', 'bg-brand-50/50');
+    });
+    pdfDropZone.addEventListener('dragleave', () => {
+      pdfDropZone.classList.remove('border-brand-500', 'bg-brand-50/50');
+    });
+    pdfDropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      pdfDropZone.classList.remove('border-brand-500', 'bg-brand-50/50');
+      if (e.dataTransfer.files.length) handlePdfFile(e.dataTransfer.files[0]);
+    });
+
+    // Drag-Drop Stamp
+    imgDropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      imgDropZone.classList.add('border-indigo-500', 'bg-indigo-50/50');
+    });
+    imgDropZone.addEventListener('dragleave', () => {
+      imgDropZone.classList.remove('border-indigo-500', 'bg-indigo-50/50');
+    });
+    imgDropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      imgDropZone.classList.remove('border-indigo-500', 'bg-indigo-50/50');
+      if (e.dataTransfer.files.length) handleStampImageFile(e.dataTransfer.files[0]);
+    });
+
+    sampleStampBtn.addEventListener('click', generateSampleStamp);
+    loadSamplePdfBtn.addEventListener('click', generateSamplePdf);
+
+    clearImgBtn.addEventListener('click', () => {
+      state.stampImageBytes = null;
+      state.stampDataUrl = null;
+      imgThumbnail.src = '';
+      stampOverlayImg.src = '';
+      imgPreviewWrapper.classList.add('hidden');
+      imgPreviewWrapper.classList.remove('flex');
+      imgFileName.textContent = '';
+      stampOverlay.classList.add('hidden');
+      imgFileInput.value = '';
+      showToast('Stamp cleared', 'info');
+    });
+
+    // Sliders
+    stampWidthSlider.addEventListener('input', (e) => {
+      state.stampWidth = parseInt(e.target.value, 10);
+      stampWidthLabel.textContent = `${state.stampWidth} px`;
+      updateStampOverlayPosition();
+    });
+
+    marginHSlider.addEventListener('input', (e) => {
+      state.marginH = parseInt(e.target.value, 10);
+      marginHLabel.textContent = `${state.marginH} px`;
+      updateStampOverlayPosition();
+    });
+
+    marginVSlider.addEventListener('input', (e) => {
+      state.marginV = parseInt(e.target.value, 10);
+      marginVLabel.textContent = `${state.marginV} px`;
+      updateStampOverlayPosition();
+    });
+
+    opacitySlider.addEventListener('input', (e) => {
+      const val = parseInt(e.target.value, 10);
+      state.opacity = val / 100;
+      opacityLabel.textContent = `${val}%`;
+      updateStampOverlayPosition();
+    });
+
+    // Position buttons
+    posButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        posButtons.forEach((b) => {
+          b.classList.remove('active', 'bg-brand-50', 'border-brand-500', 'text-brand-700');
+          b.classList.add('bg-white', 'border-slate-200', 'text-slate-600');
+        });
+        btn.classList.add('active', 'bg-brand-50', 'border-brand-500', 'text-brand-700');
+        btn.classList.remove('bg-white', 'border-slate-200', 'text-slate-600');
+        state.position = btn.getAttribute('data-pos');
+        
+        previewStatusText.textContent = `${btn.querySelector('span').textContent} placement active`;
+        updateStampOverlayPosition();
+      });
+    });
+
+    pageScopeInputs.forEach((radio) => {
+      radio.addEventListener('change', (e) => {
+        state.pageScope = e.target.value;
+        if (state.pageScope === 'custom') {
+          customRangeWrapper.classList.remove('hidden');
+          updateCustomRangeFeedback();
+        } else {
+          customRangeWrapper.classList.add('hidden');
+        }
+        updateStampOverlayPosition();
+      });
+    });
+
+    function updateCustomRangeFeedback() {
+      const parsed = Array.from(parseCustomPageRanges(state.customRangeString, state.totalNumPages)).sort((a,b) => a - b);
+      if (parsed.length > 0) {
+        customRangeFeedback.textContent = `Applies to ${parsed.length} page${parsed.length > 1 ? 's' : ''}: [${parsed.join(', ')}]`;
+        customRangeFeedback.classList.remove('text-rose-500');
+        customRangeFeedback.classList.add('text-brand-600');
+      } else {
+        customRangeFeedback.textContent = 'Please enter valid pages (e.g. 1-3, 5)';
+        customRangeFeedback.classList.remove('text-brand-600');
+        customRangeFeedback.classList.add('text-rose-500');
+      }
+    }
+
+    customRangeInput.addEventListener('input', (e) => {
+      state.customRangeString = e.target.value;
+      updateCustomRangeFeedback();
+      updateStampOverlayPosition();
+    });
+
+    resetSettingsBtn.addEventListener('click', () => {
+      state.stampWidth = 120;
+      state.marginH = 25;
+      state.marginV = 25;
+      state.opacity = 1.0;
+      state.position = 'bottom-right';
+      state.pageScope = 'all';
+      state.customRangeString = '1';
+
+      stampWidthSlider.value = 120;
+      stampWidthLabel.textContent = '120 px';
+      marginHSlider.value = 25;
+      marginHLabel.textContent = '25 px';
+      marginVSlider.value = 25;
+      marginVLabel.textContent = '25 px';
+      opacitySlider.value = 100;
+      opacityLabel.textContent = '100%';
+      customRangeWrapper.classList.add('hidden');
+      customRangeInput.value = '1';
+
+      posButtons.forEach((b) => {
+        const isBR = b.getAttribute('data-pos') === 'bottom-right';
+        b.classList.toggle('bg-brand-50', isBR);
+        b.classList.toggle('border-brand-500', isBR);
+        b.classList.toggle('text-brand-700', isBR);
+        b.classList.toggle('bg-white', !isBR);
+        b.classList.toggle('border-slate-200', !isBR);
+        b.classList.toggle('text-slate-600', !isBR);
+      });
+
+      document.querySelector('input[name="pageScope"][value="all"]').checked = true;
+      updateStampOverlayPosition();
+      showToast('Settings reset to bottom-right standard', 'info');
+    });
+
+    // Pagination
+    prevPageBtn.addEventListener('click', async () => {
+      if (state.currentPage > 1) {
+        state.currentPage--;
+        updatePaginationUI();
+        await renderCurrentPdfPage();
+      }
+    });
+
+    nextPageBtn.addEventListener('click', async () => {
+      if (state.currentPage < state.totalNumPages) {
+        state.currentPage++;
+        updatePaginationUI();
+        await renderCurrentPdfPage();
+      }
+    });
+
+    // Zoom
+    zoomInBtn.addEventListener('click', async () => {
+      if (state.zoom < 2.0) {
+        state.zoom = +(state.zoom + 0.15).toFixed(2);
+        zoomLevelLabel.textContent = `${Math.round(state.zoom * 100)}%`;
+        await renderCurrentPdfPage();
+      }
+    });
+
+    zoomOutBtn.addEventListener('click', async () => {
+      if (state.zoom > 0.6) {
+        state.zoom = +(state.zoom - 0.15).toFixed(2);
+        zoomLevelLabel.textContent = `${Math.round(state.zoom * 100)}%`;
+        await renderCurrentPdfPage();
+      }
+    });
+
+    let resizeDebounce;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeDebounce);
+      resizeDebounce = setTimeout(() => {
+        if (state.pdfJsDoc) renderCurrentPdfPage();
+      }, 150);
+    });
+
+    batchApplyBtn.addEventListener('click', () => {
+      processAndStampPdf(false);
+    });
+
+    downloadPdfBtn.addEventListener('click', () => {
+      processAndStampPdf(true);
+    });
+  </script>
+</body>
+</html>
